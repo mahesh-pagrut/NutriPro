@@ -33,6 +33,7 @@ const Nutrition = () => {
         </div>
       </div>
 
+
       {/* Section 2 - Track to Transform */}
       <h2 className="text-3xl md:text-4xl text-center mt-16 mb-8 font-bold text-violet-700 px-4">
         Track to Transform: Why Monitoring Calories and Nutrition is Essential for Your Health

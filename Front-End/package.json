@@ -10,11 +10,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google-cloud/vision": "^4.3.2",
     "@google/generative-ai": "^0.21.0",
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
     "@zxing/library": "^0.21.3",
     "axios": "^1.7.9",
+    "lucide-react": "^0.474.0",
     "qrcode.react": "^4.2.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
