@@ -8,7 +8,7 @@ const App = () => {
     <>
 
       <Header />
-      <div className="mt-20"> {/* Adjust margin based on your header height */}
+      <div> {/* Adjust margin based on your header height */}
         <AllRoutes />
       </div>
       <Footer />

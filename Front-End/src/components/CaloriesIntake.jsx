@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import QRCode from "react-qr-code";
 
 const CalorieIntake = () => {
   const [calorieNeeds, setCalorieNeeds] = useState("");
   const [qrData, setQrData] = useState("");
   const [tips, setTips] = useState("");
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (calorieNeeds || tips || qrData) {
+      setQrData(""); // Reset QR data if form is cleared
+      setTips(""); // Reset tips when new calculation is made
+    }
+  }, [calorieNeeds, tips, qrData]);
 
   const handleCalculate = (event) => {
     event.preventDefault();
+
     const age = parseInt(event.target.age.value, 10);
     const weight = parseFloat(event.target.weight.value);
     const height = parseFloat(event.target.height.value);
@@ -15,9 +24,10 @@ const CalorieIntake = () => {
     const gender = event.target.gender.value;
 
     if (age <= 0 || weight <= 0 || height <= 0) {
-      alert("Age, weight, and height must be positive values.");
+      setError("Age, weight, and height must be positive values.");
       return;
     }
+    setError(""); // Reset error message
 
     // Calculate BMR
     let bmr = 0;
@@ -62,23 +72,32 @@ const CalorieIntake = () => {
   };
 
   return (
-    <div className="container mx-auto p-6 md:p-12 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-6">Calories Calculator</h1>
-      <p className="mb-8 text-center text-lg md:text-xl">Calculate your daily calorie needs and get useful health tips.</p>
+    <div className="mx-auto p-6 md:p-12 flex flex-col items-center bg-gradient-to-b from-white to-violet-300">
+      <h1 className="text-5xl font-semibold mb-6 text-violet-800">Calories Calculator</h1>
+      <p className="mb-8 text-center text-lg md:text-xl text-violet-700">
+        Calculate your daily calorie needs and get useful health tips.
+      </p>
 
-      <form onSubmit={handleCalculate} className="bg-white p-6 rounded-lg shadow-lg w-full max-w-3xl space-y-6">
+      <form
+        onSubmit={handleCalculate}
+        className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl space-y-6 border border-violet-200"
+      >
         <div className="mb-4">
-          <label htmlFor="gender" className="block text-gray-700 text-lg">
+          <label htmlFor="gender" className="block text-violet-700 text-lg">
             Gender:
           </label>
-          <select id="gender" name="gender" className="mt-1 block w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500">
+          <select
+            id="gender"
+            name="gender"
+            className="mt-1 block w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"
+          >
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
         </div>
 
         <div className="mb-4">
-          <label htmlFor="age" className="block text-gray-700 text-lg">
+          <label htmlFor="age" className="block text-violet-700 text-lg">
             Age:
           </label>
           <input
@@ -93,7 +112,7 @@ const CalorieIntake = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="weight" className="block text-gray-700 text-lg">
+          <label htmlFor="weight" className="block text-violet-700 text-lg">
             Weight (kg):
           </label>
           <input
@@ -108,7 +127,7 @@ const CalorieIntake = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="height" className="block text-gray-700 text-lg">
+          <label htmlFor="height" className="block text-violet-700 text-lg">
             Height (cm):
           </label>
           <input
@@ -123,10 +142,14 @@ const CalorieIntake = () => {
         </div>
 
         <div className="mb-4">
-          <label htmlFor="activityLevel" className="block text-gray-700 text-lg">
+          <label htmlFor="activityLevel" className="block text-violet-700 text-lg">
             Activity Level:
           </label>
-          <select id="activityLevel" name="activityLevel" className="mt-1 block w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500">
+          <select
+            id="activityLevel"
+            name="activityLevel"
+            className="mt-1 block w-full border rounded px-4 py-2 focus:outline-none focus:ring-2 focus:ring-violet-500"
+          >
             <option value="sedentary">Sedentary</option>
             <option value="lightly_active">Lightly Active</option>
             <option value="moderately_active">Moderately Active</option>
@@ -143,10 +166,16 @@ const CalorieIntake = () => {
         </button>
       </form>
 
+      {error && (
+        <div className="mt-6 text-red-500 text-center">
+          <p>{error}</p>
+        </div>
+      )}
+
       {calorieNeeds && (
         <div className="mt-8 text-center max-w-xl mx-auto">
-          <h2 className="text-3xl font-bold mb-4">Your Daily Calorie Needs:</h2>
-          <p className="text-xl mb-4">{calorieNeeds} kcal</p>
+          <h2 className="text-3xl font-semibold mb-4 text-violet-700">Your Daily Calorie Needs:</h2>
+          <p className="text-xl mb-4 text-violet-600">{calorieNeeds} kcal</p>
           <p className="text-lg text-gray-700 mb-4">Tips: {tips}</p>
 
           <div className="flex justify-center mt-6">

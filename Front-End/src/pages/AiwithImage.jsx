@@ -105,7 +105,7 @@ const AiwithImage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-green-300 flex flex-col items-center py-10">
+    <div className="min-h-screen bg-gradient-to-b from-white to-violet-500 flex flex-col items-center py-10">
       <div className="w-full max-w-4xl px-4 mt-10 gap-6 flex flex-col md:flex-row">
         <div className="w-full md:w-1/2 p-4 shadow-md bg-white border border-violet-200 rounded-md">
           <h2 className="text-lg font-semibold text-violet-700 mb-4">Analyze Image</h2>

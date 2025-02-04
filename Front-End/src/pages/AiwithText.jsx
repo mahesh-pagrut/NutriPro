@@ -4,7 +4,9 @@ import boxbg from "../assets/boxbg.png";
 import robo2 from "../assets/robo2.mp4"; // Example video file
 
 const NutritionistChat = () => {
-  const genAI = new GoogleGenerativeAI("AIzaSyBVGsZc-vdZuU9zS6dculPS0ZFh0905k2c");
+  const genAI = new GoogleGenerativeAI(
+    "AIzaSyBVGsZc-vdZuU9zS6dculPS0ZFh0905k2c"
+  );
 
   const [userQuery, setUserQuery] = useState("");
   const [chatHistory, setChatHistory] = useState([]);
@@ -30,7 +32,10 @@ const NutritionistChat = () => {
       setChatHistory((prev) => [
         ...prev,
         { type: "user", text: userQuery },
-        { type: "ai", text: "I'm sorry, I couldn't process your query. Please try again." },
+        {
+          type: "ai",
+          text: "I'm sorry, I couldn't process your query. Please try again.",
+        },
       ]);
     }
 
@@ -39,23 +44,23 @@ const NutritionistChat = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-between bg-gradient-to-b from-white to-indigo-900 px-16">
-      {/* Left Side: Video and Text in One Container */}
-      <div className="w-full sm:w-[40%] md:w-[50%] flex flex-col justify-center items-center bg-white rounded-lg border border-violet-300 ">
-        {/* Top: Video */}
+    <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gradient-to-b from-white to-violet-400 p-4 lg:p-16 gap-10">
+      {/* Left Side: Video and Text */}
+      <div className="w-full lg:w-[45%] flex flex-col items-center bg-white rounded-lg border border-violet-300 p-6 min-h-[400px]">
+        {/* Video Section */}
         <div className="w-full flex justify-center">
           <video
             src={robo2}
             autoPlay
             loop
             muted
-            className="h-34 w-28 rounded-lg mt-10"
+            className="h-40 w-40 rounded-lg mt-6 lg:mt-10"
           />
         </div>
 
-        {/* Bottom: Text with White Background */}
-        <div className="w-full bg-white text-center p-6 rounded-lg">
-          <p className="text-md text-violet-800">
+        {/* Text Section */}
+        <div className="w-full bg-white text-center mt-4 rounded-lg">
+          <p className="text-md lg:text-md text-violet-800">
             Meet our AI-powered nutritionist! It’s designed to assist you in
             making informed, healthy dietary choices. This Gen AI model is
             equipped with a deep understanding of nutrition and can provide
@@ -66,7 +71,7 @@ const NutritionistChat = () => {
 
       {/* Right Side: Chat Box */}
       <div
-        className="bg-white rounded-lg shadow-xl p-6 w-[40rem] max-h-[30rem] flex flex-col border border-violet-300 m-6"
+        className="w-full lg:w-[50%] bg-white rounded-lg shadow-xl p-6 flex flex-col border border-violet-300 min-h-[400px]"
         style={{
           backgroundImage: `url(${boxbg})`,
           backgroundPosition: "bottom",
@@ -74,12 +79,15 @@ const NutritionistChat = () => {
           backgroundSize: "cover",
         }}
       >
-        <div className="backdrop-blur-sm backdrop-saturate-150 bg-white/50 m-2 p-2">
-          <h1 className="text-2xl font-bold text-violet-800 text-center">
+        <div className="backdrop-blur-sm backdrop-saturate-150 bg-white/50 p-2">
+          <h1 className="text-lg lg:text-2xl font-bold text-violet-800 text-center">
             Nutritionist Gen AI Model
           </h1>
         </div>
-        <div className="flex-grow overflow-y-auto mb-4 bg-violet-50 rounded-lg shadow-inner p-10">
+        <div
+          className="flex-grow overflow-y-auto mb-4 bg-violet-50 rounded-lg shadow-inner p-4 lg:p-6"
+          style={{ maxHeight: "300px" }} // Fixed height for the chat history
+        >
           {chatHistory.map((entry, index) => (
             <div
               key={index}
@@ -88,20 +96,20 @@ const NutritionistChat = () => {
               } mb-3`}
             >
               <div
-                className={`max-w-xl p-3 rounded-xl ${
+                className={`max-w-xs lg:max-w-xl p-3 rounded-xl ${
                   entry.type === "user"
                     ? "bg-violet-600 text-white"
                     : "bg-violet-200 text-violet-800"
                 } shadow-md`}
               >
-                <p className="text-sm">{entry.text}</p>
+                <p className="text-xs lg:text-sm">{entry.text}</p>
               </div>
             </div>
           ))}
           {loading && (
             <div className="flex justify-start mb-3">
               <div className="bg-violet-200 text-violet-800 p-3 rounded-xl max-w-xs shadow-md">
-                <p className="text-sm">Typing...</p>
+                <p className="text-xs lg:text-sm">Typing...</p>
               </div>
             </div>
           )}
@@ -112,12 +120,18 @@ const NutritionistChat = () => {
             placeholder="Ask about nutrition..."
             value={userQuery}
             onChange={(e) => setUserQuery(e.target.value)}
-            className="flex-grow px-4 py-2 border border-violet-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 text-violet-800"
+            onKeyDown={(e) => {
+              if (e.key === "Enter") {
+                handleQuery();
+              }
+            }}
+            className="flex-grow px-3 py-2 text-sm lg:text-base border border-violet-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-500 text-violet-800"
           />
+
           <button
             onClick={handleQuery}
             disabled={loading}
-            className="px-4 py-2 bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition focus:outline-none focus:ring-2 focus:ring-violet-500"
+            className="px-3 py-2 text-sm lg:text-base bg-violet-600 text-white font-semibold rounded-lg hover:bg-violet-700 transition focus:outline-none focus:ring-2 focus:ring-violet-500"
           >
             Send
           </button>
