@@ -66,21 +66,24 @@ $ npm i
 $ npm run dev
 ```
 
-## Screenshots 
-## Ai Response With Image  
-![Upload Image And Get Response](https://github.com/user-attachments/assets/ed743735-f566-4e7a-9e4d-e7eeb3c86a32)
+## 📸 Screenshots
 
-## Calories Calculator
-<img width="1470" alt="Screenshot 2025-01-20 at 8 08 37 PM" src="https://github.com/user-attachments/assets/fa7ab2aa-84bb-47a0-a12c-e52de4c22df5" />
+### 🧠 AI Response & Calories Calculator
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/ed743735-f566-4e7a-9e4d-e7eeb3c86a32" width="45%" />
+  <img src="https://github.com/user-attachments/assets/fa7ab2aa-84bb-47a0-a12c-e52de4c22df5" width="45%" />
+</p>
 
-## Ai Response With Text
-<img width="1470" alt="Screenshot 2025-01-20 at 8 09 16 PM" src="https://github.com/user-attachments/assets/b8f3ba6b-ee8c-4f84-bbf8-ac5b73478206" />
+### 📝 AI Response With Text & 🍽️ Dish Items
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/b8f3ba6b-ee8c-4f84-bbf8-ac5b73478206" width="45%" />
+  <img src="https://github.com/user-attachments/assets/9dc6c8ea-030e-4619-aee1-2379c84a6cf7" width="45%" />
+</p>
 
-## Dish Items
-<img width="1470" alt="Screenshot 2025-01-20 at 8 08 29 PM" src="https://github.com/user-attachments/assets/9dc6c8ea-030e-4619-aee1-2379c84a6cf7" />
-
-## Calorie Intake Required Per Day
-<img width="1470" alt="Screenshot 2025-01-20 at 8 09 44 PM" src="https://github.com/user-attachments/assets/7b5d16d1-50b4-42ed-91e1-72a08fbf50e7" />
+### 🔥 Calorie Intake Required Per Day
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/7b5d16d1-50b4-42ed-91e1-72a08fbf50e7" width="45%" />
+</p>
 
 ## Tools/Languages
 
