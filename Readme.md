@@ -13,32 +13,32 @@ Our platform also empowers you with CRUD operations for recipes, allowing you to
 - Full-Stack: [Deployed Link Here]
 
 ## Directory Structure
-6395-hackathon/
-├── Backend/
-│   ├── config/
-│   ├── controllers/
-│   ├── images/
-│   ├── models/
-│   ├── node_modules/
-│   ├── routes/
-│   ├── .env
-│   ├── index.js
-│   ├── package-lock.json
-│   ├── package.json
-│   └── server.js
-├── Front-End/
-│   ├── node_modules/
-│   ├── public/
-│   ├── src/
-│   │   ├── assets/
-│   │   ├── components/
-│   │   ├── helpers/
-│   │   ├── pages/
-│   │   └── Router/
-│   ├── App.css
-│   ├── App.jsx
-│   ├── index.css
-│   └── main.jsx
+      6395-hackathon/
+      ├── Backend/
+      │   ├── config/
+      │   ├── controllers/
+      │   ├── images/
+      │   ├── models/
+      │   ├── node_modules/
+      │   ├── routes/
+      │   ├── .env
+      │   ├── index.js
+      │   ├── package-lock.json
+      │   ├── package.json
+      │   └── server.js
+      ├── Front-End/
+      │   ├── node_modules/
+      │   ├── public/
+      │   ├── src/
+      │   │   ├── assets/
+      │   │   ├── components/
+      │   │   ├── helpers/
+      │   │   ├── pages/
+      │   │   └── Router/
+      │   ├── App.css
+      │   ├── App.jsx
+      │   ├── index.css
+      │   └── main.jsx
 
 
 ## Features
